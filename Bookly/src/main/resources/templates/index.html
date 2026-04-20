@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Reviews</title>
+     <script th:src="@{/bookscript.js}"></script>
+</head>
+<body>
+
+     <h1>Book Reviews</h1>
+
+    <h2>Books</h2>
+    <ul>
+        <li th:each="b : ${books}">
+            <a href="#"
+               th:onclick="'getBook(' + ${b.id} + ')'"
+               th:text="${b.title}">
+            </a>
+        </li>
+    </ul>
+
+    <h2>Add Book</h2>
+    <form th:action="@{/saveBook}" method="post">
+        <p>
+            Title: <input type="text" name="title">
+        </p>
+        <p>
+            Authors: <input type="text" name="authors">
+        </p>
+        <button type="submit">Add Book</button>
+    </form>
+
+    <hr>
+
+    <div id="bookdetails"></div>
+</body>
+</html>
