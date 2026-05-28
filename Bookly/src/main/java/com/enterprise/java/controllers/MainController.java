@@ -30,7 +30,7 @@ public class MainController {
         model.addAttribute("books", bookService.getAllBooks());
         model.addAttribute("book", new Book());
         model.addAttribute("review", new Review());
-        return "indexx";
+        return "index";
     }
     
     @RequestMapping("/admin")
