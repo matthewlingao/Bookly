@@ -35,7 +35,7 @@ public class MainController {
     
     @RequestMapping("/admin")
     public String admin() {
-        return "adminn";
+        return "admin";
     }
     
     @RequestMapping("/denied")
