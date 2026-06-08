@@ -8,7 +8,7 @@
 </head>
 <body>
 
-     <h1>Book Reviews</h1>
+     <h1>Welcome to Bookly</h1>
 
     <h2>Books</h2>
     <ul>
@@ -17,6 +17,10 @@
                th:onclick="'getBook(' + ${b.id} + ')'"
                th:text="${b.title}">
             </a>
+            
+           <form th:action="@{'/deleteBook/' + ${b.id}}" method="POST">
+   				 <button type="submit">Delete Book</button>
+			</form>
         </li>
     </ul>
 

@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+body {
+	background-color: #ffefd5
+}
+
 h1 {
-	background-color: midnightblue
+	text-align: center
 }
