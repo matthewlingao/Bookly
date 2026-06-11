@@ -27,8 +27,10 @@ public class SecurityConfig {
                 .requestMatchers("/", "/bookdata/*", "/reviews/*").permitAll()
                 // only users with the ADMIN role can access /admin
                 .requestMatchers("/admin").hasRole("ADMIN") 
-                // only authenticated users can add books
-                .requestMatchers("/saveBook").authenticated()
+                // only authenticated (ADMINS) users can add books
+                .requestMatchers("/saveBook").hasRole("ADMIN")
+                //only admin can delete books
+                .requestMatchers("/deleteBook/**").hasRole("ADMIN")
                 // any requests require authentication
                 .anyRequest().authenticated())
             .httpBasic(withDefaults())
