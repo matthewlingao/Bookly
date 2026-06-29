@@ -15,6 +15,7 @@ public class Book {
 	private int id;
 	private String title;
 	private String authors;
+	private String imageUrl;
 	public int getId() {
 		return id;
 	}
@@ -32,6 +33,12 @@ public class Book {
 	}
 	public void setAuthors(String authors) {
 		this.authors = authors;
+	}
+	public String getImageUrl() {
+		return imageUrl;
+	}
+	public void setImageUrl(String imageURL) {
+		this.imageUrl = imageURL;
 	}
 
 }

@@ -13,15 +13,27 @@
     <h2>Books</h2>
     <ul>
         <li th:each="b : ${books}">
-            <a href="#"
-               th:onclick="'getBook(' + ${b.id} + ')'"
-               th:text="${b.title}">
-            </a>
-            
-           <form th:action="@{'/deleteBook/' + ${b.id}}" method="POST">
-   				 <button type="submit">Delete Book</button>
-			</form>
-        </li>
+
+    <img th:src="${b.imageUrl}"
+         alt="Book Cover"
+         width="120">
+
+    <br>
+
+    <a href="#"
+       th:onclick="'getBook(' + ${b.id} + ')'"
+       th:text="${b.title}">
+    </a>
+
+    <a th:href="@{'/editBook/' + ${b.id}}">
+        Edit
+    </a>
+
+    <form th:action="@{'/deleteBook/' + ${b.id}}" method="post">
+        <button type="submit">Delete Book</button>
+    </form>
+
+</li>
     </ul>
 
     <h2>Add Book</h2>
@@ -32,6 +44,11 @@
         <p>
             Authors: <input type="text" name="authors">
         </p>
+        
+        <p>
+    		Cover Image URL: <input type="text" name="imageUrl" placeholder="https://example.com/book-cover.jpg">
+		</p>
+		
         <button type="submit">Add Book</button>
     </form>
 

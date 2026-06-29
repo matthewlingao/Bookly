@@ -10,10 +10,20 @@
 
     <h2>Books</h2>
     <ul>
-        <li th:each="b : ${books}">
-            <a th:href="@{'/book/' + ${b.id}}" th:text="${b.title}"></a>
-        </li>
-    </ul>
+    <li th:each="b : ${books}">
+
+        <img th:src="${b.imageUrl}"
+             alt="Book Cover"
+             width="120">
+
+        <br>
+
+        <a th:href="@{'/book/' + ${b.id}}"
+           th:text="${b.title}">
+        </a>
+
+    </li>
+</ul>
 
     <h2>Add Book</h2>
     <form action="/saveBook" method="post">
@@ -23,6 +33,13 @@
         <p>
             Authors: <input type="text" name="authors">
         </p>
+        
+        <p>
+        Cover Image URL:
+        <input type="text" name="imageUrl"
+               placeholder="https://example.com/book-cover.jpg">
+    	</p>
+    	
         <button type="submit">Add Book</button>
     </form>
 
