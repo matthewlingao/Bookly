@@ -31,6 +31,7 @@ public class SecurityConfig {
                 .requestMatchers("/saveBook").hasRole("ADMIN")
                 //only admin can delete books
                 .requestMatchers("/deleteBook/**").hasRole("ADMIN")
+                .requestMatchers("/editBook/**", "/updateBook").hasRole("ADMIN")
                 // any requests require authentication
                 .anyRequest().authenticated())
             .httpBasic(withDefaults())
