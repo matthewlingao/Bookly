@@ -93,7 +93,12 @@ public class MainController {
     return "redirect:/";
     }
     
- 
+    @GetMapping("/editBook/{id}")
+    public String editBook(@PathVariable int id, Model model) {
+    	Book book = bookService.getBook(id).orElse(null);
+    	model.addAttribute("book", book);
+    	return "bookform";
+    }
     
     @PostMapping("/updateBook")
     public String updateBook(@ModelAttribute Book book) {

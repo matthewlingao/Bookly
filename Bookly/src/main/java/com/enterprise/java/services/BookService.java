@@ -30,7 +30,5 @@ public class BookService {
     public void deleteBook(int id) {
         bookRepository.deleteById(id);
     }
-   
-    
     
 }

@@ -6,40 +6,41 @@
 </head>
 <body>
 
-    <h1>Book Reviews</h1>
+    <h1>Edit Book</h1>
 
-    <h2>Books</h2>
-    <ul>
-    <li th:each="b : ${books}">
+<form th:action="@{/updateBook}" method="post">
 
-        <img th:src="${b.imageUrl}"
-             alt="Book Cover"
-             width="120">
+    <!-- Hidden ID -->
+    <input type="hidden"
+           name="id"
+           th:value="${book.id}">
 
-        <br>
+    <p>
+        Title:
+        <input type="text"
+               name="title"
+               th:value="${book.title}">
+    </p>
 
-        <a th:href="@{'/book/' + ${b.id}}"
-           th:text="${b.title}">
-        </a>
+    <p>
+        Authors:
+        <input type="text"
+               name="authors"
+               th:value="${book.authors}">
+    </p>
 
-    </li>
-</ul>
+    <p>
+        Cover Image URL:
+        <input type="text"
+               name="imageUrl"
+               th:value="${book.imageUrl}">
+    </p>
 
-    <h2>Add Book</h2>
-    <form action="/saveBook" method="post">
-        <p>
-            Title: <input type="text" name="title">
-        </p>
-        <p>
-            Authors: <input type="text" name="authors">
-        </p>
-        
-        <p>
-        Cover Image URL: <input type="text" name="imageUrl" placeholder="https://example.com/book-cover.jpg">
-    	</p>
-    	
-        <button type="submit">Add Book</button>
-    </form>
+    <button type="submit">
+        Update Book
+    </button>
+
+</form>
 
 </body>
 </html>

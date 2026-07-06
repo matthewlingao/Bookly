@@ -23,7 +23,7 @@
     <a href="#"
        th:onclick="'getBook(' + ${b.id} + ')'"
        th:text="${b.title}">
-    </a>
+    </a> <br />
 
     <a th:href="@{'/editBook/' + ${b.id}}">
         Edit
