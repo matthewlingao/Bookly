@@ -24,7 +24,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/bookdata/*", "/reviews/*").permitAll()
+                .requestMatchers("/", "/book/**", "/bookdata/**", "/reviews/**").permitAll()
                 // only users with the ADMIN role can access /admin
                 .requestMatchers("/admin").hasRole("ADMIN") 
                 // only authenticated (ADMINS) users can add books
