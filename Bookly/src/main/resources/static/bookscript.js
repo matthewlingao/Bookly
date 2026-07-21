@@ -29,6 +29,16 @@ function showBook(book, id) {
                 "<h3>Add Review</h3>" +
                 "<form action='/saveReview' method='post'>" +
                 "<input type='hidden' name='bookid' value='" + id + "' />" +
+				
+				"Rating: " +
+				"<select name='rating'>" +
+					"<option value='5'>5 Stars</option>" +
+					"<option value='4'>4 Stars</option>" +
+					"<option value='3'>3 Stars</option>" +
+					"<option value='2'>2 Stars</option>" +
+					"<option value='1'>1 Star</option>" +
+				"/select><br />" +
+				
                 "Review: <input type='text' name='review' />" +
                 "<button type='submit'>Add Review</button>" +
                 "</form>";
