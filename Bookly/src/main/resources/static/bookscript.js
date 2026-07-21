@@ -22,7 +22,11 @@ function showBook(book, id) {
             var reviewList = "<h3>Reviews</h3>";
 
             for (var i = 0; i < reviews.length; i++) {
-                reviewList += "<br/>- " + reviews[i].review;
+                reviewList += 
+					"<br />Rating: " + reviews[i].review + "/5" +
+					"<br />Review: " + reviews[i].review + 
+					"<br />";
+				
             }
 
             var reviewForm =
