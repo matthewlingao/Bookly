@@ -20,14 +20,28 @@ function showBook(book, id) {
         .then(function(reviews) {
 
             var reviewList = "<h3>Reviews</h3>";
+			var totalRating = 0;
 
             for (var i = 0; i < reviews.length; i++) {
+				
+				totalRating += reviews[i].rating;
+				
                 reviewList += 
-					"<br />Rating: " + reviews[i].review + "/5" +
+					"<br />Rating: " + reviews[i].rating + "/5<br />" +
 					"<br />Review: " + reviews[i].review + 
 					"<br />";
 				
             }
+			
+			var averageRating = 0;
+			
+			if (reviews.length > 0) {
+				averageRating = totalRating / reviews.length;
+			}
+			
+			var averageRatingDisplay = 
+				"<h3>Average Rating: " + averageRating.toFixed(1) + "/ 5</h3>"
+				reviewList;
 
             var reviewForm =
                 "<h3>Add Review</h3>" +
@@ -48,6 +62,6 @@ function showBook(book, id) {
                 "</form>";
 
             document.getElementById("bookdetails").innerHTML =
-                details + reviewList + reviewForm;
+                details + averageRatingDisplay + reviewList + reviewForm;
         });
 }
