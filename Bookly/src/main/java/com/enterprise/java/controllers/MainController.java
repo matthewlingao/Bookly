@@ -73,10 +73,11 @@ public class MainController {
     }
 
     @RequestMapping("/saveReview")
-    public String saveReview(@RequestParam int bookid, @RequestParam String review) {
+    public String saveReview(@RequestParam int bookid, @RequestParam String review, @RequestParam int rating) {
         Review r = new Review();
         r.setBookid(bookid);
         r.setReview(review);
+        r.setRating(rating);
         reviewService.saveReview(r);
         return "redirect:/book/" + bookid;
     }

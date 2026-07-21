@@ -14,6 +14,7 @@ public class Review {
 	private int id;
 	private int bookid;
 	private String review;
+	private int rating;
 	
 	 public Review() {
 	    }
@@ -35,6 +36,14 @@ public class Review {
 	}
 	public void setReview(String review) {
 		this.review = review;
+	}
+	
+	public int getRating() {
+		return rating;
+	}
+	
+	public void setRating(int rating) {
+		this.rating = rating;
 	}
 	
 
