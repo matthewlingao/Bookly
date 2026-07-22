@@ -25,6 +25,7 @@ public class SecurityConfig {
 
         http.authorizeHttpRequests(auth -> auth
                 .requestMatchers("/", "/book/**", "/bookdata/**", "/reviews/**").permitAll()
+                .requestMatchers("/saveReview").authenticated()
                 // only users with the ADMIN role can access /admin
                 .requestMatchers("/admin").hasRole("ADMIN") 
                 // only authenticated (ADMINS) users can add books
