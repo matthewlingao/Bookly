@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book Reviews</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Edit Book</h1>
+
+<form th:action="@{/updateBook}" method="post">
+
+    <!-- Hidden ID -->
+    <input type="hidden"
+           name="id"
+           th:value="${book.id}">
+
+    <p>
+        Title:
+        <input type="text"
+               name="title"
+               th:value="${book.title}">
+    </p>
+
+    <p>
+        Authors:
+        <input type="text"
+               name="authors"
+               th:value="${book.authors}">
+    </p>
+
+    <p>
+        Cover Image URL:
+        <input type="text"
+               name="imageUrl"
+               th:value="${book.imageUrl}">
+    </p>
+
+    <button type="submit">
+        Update Book
+    </button>
+
+</form>
+
+</body>
+</html>
